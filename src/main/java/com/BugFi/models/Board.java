@@ -14,6 +14,7 @@ public class Board {
 
     public Board(Integer size) {
         this.size = size;
+        this.board = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
             List<Cell> row = new ArrayList<>();
@@ -22,5 +23,20 @@ public class Board {
             }
             board.add(row);
         }
+    }
+
+    public void printBoard() {
+        System.out.println();
+        for (List<Cell> row : board) {
+            for (Cell cell : row) {
+                if (cell.getCellState() == CellState.EMPTY) {
+                    System.out.print("| - |");
+                } else {
+                    System.out.print("| " + cell.getPlayer().getSymbol().getCharacter() + " |");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }

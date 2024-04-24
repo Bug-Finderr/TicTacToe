@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Symbol {
-    private Character symbol;
+    private Character character;
 }
