@@ -37,6 +37,12 @@ public class Game {
         Player currentPlayer = this.players.get(this.nextPlayerIndex);
         Move move = currentPlayer.makeMove(this.board);
 
+        // Edge case: null returned from Bot means board completely filled
+        if (move == null) {
+            this.gameState = GameState.DRAW;
+            return;
+        }
+
         // Validate if the cell is already occupied
         if (!validateMove(move)) throw new IllegalMoveException("Cell is already occupied");
         this.moves.add(move);
